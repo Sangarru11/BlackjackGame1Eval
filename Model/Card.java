@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Card {
     private int value;
     private String suit;
+    private boolean isAce;
 
     public Card(int value, String suit) {
         this.value = value;
         this.suit = suit;
+        this.isAce = (value == 1);
     }
     public Card(){
         this(0,"");
@@ -25,12 +27,18 @@ public class Card {
     public void setSuit(String suit) {
         this.suit = suit;
     }
+    public boolean isAce() {
+        return isAce;
+    }
     @Override
     public String toString() {
-        return "Card{" +
-                "value=" + value +
-                ", suit='" + suit + '\'' +
-                '}';
+        return "╔════════╗\n" +
+                "║ " + value + "      ║\n" +
+                "║        ║\n" +
+                "║   " + suit + "    ║\n" +
+                "║        ║\n" +
+                "║      " + value + " ║\n" +
+                "╚════════╝";
     }
     @Override
     public boolean equals(Object o) {

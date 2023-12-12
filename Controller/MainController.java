@@ -17,11 +17,16 @@ public class MainController {
         this.game.dealInitialCards();
         for (Player player : this.game.getPlayers()) {
             this.ui.showPlayerHand(player);
+        }
+        System.out.println(this.game.getDealer().getName() + "'s first card:");
+        System.out.println(this.game.getDealer().getHand().get(0));
+        for (Player player : this.game.getPlayers()) {
             this.playerTurn(player);
         }
         this.dealerTurn();
         this.determineWinner();
     }
+
 
     public void playerTurn(Player player) {
         boolean endTurn = false;
@@ -30,7 +35,13 @@ public class MainController {
             int choice = this.ui.getPlayerChoice();
             switch (choice) {
                 case 1: // Hit
-                    player.addCardToHand(this.game.getDeck().drawCard());
+                    Card drawnCard = this.game.getDeck().drawCard();
+                    if (drawnCard.isAce()) {
+                        System.out.println("Has sacado un As. ¿Quieres que valga 1 o 11?");
+                        int aceValue = this.ui.getPlayerChoice();
+                        drawnCard.setValue(aceValue);
+                    }
+                    player.addCardToHand(drawnCard);
                     this.ui.showPlayerHand(player);
                     if (player.isBust()) {
                         endTurn = true;
