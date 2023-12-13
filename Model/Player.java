@@ -15,20 +15,12 @@ public class Player {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ArrayList<Card> getHand() {
         return hand;
     }
 
     public void addCardToHand(Card card) {
         this.hand.add(card);
-    }
-
-    public void clearHand() {
-        this.hand.clear();
     }
 
     public int calculateHandTotal() {

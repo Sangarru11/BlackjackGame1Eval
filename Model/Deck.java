@@ -8,16 +8,16 @@ public class Deck {
 
     public Deck() {
         this.cards = new ArrayList<>();
-        for (int i = 2; i <= 10; i++) { // Cartas numeradas
-            for (String suit : new String[]{"Corazones", "Diamantes", "Tréboles", "Picas"}) {
+        for (int i = 2; i <= 10; i++) {
+            for (String suit : new String[]{"♥", "♦", "♣", "♠"}) {
                 this.cards.add(new Card(i, suit));
             }
         }
-        for (String suit : new String[]{"Corazones", "Diamantes", "Tréboles", "Picas"}) {
-            this.cards.add(new Card(10, suit)); // J
-            this.cards.add(new Card(10, suit)); // Q
-            this.cards.add(new Card(10, suit)); // K
-            this.cards.add(new Card(11, suit)); // As
+        for (String suit : new String[]{"♥", "♦", "♣", "♠"}) {
+            this.cards.add(new Card(11, suit)); // J
+            this.cards.add(new Card(12, suit)); // Q
+            this.cards.add(new Card(13, suit)); // K
+            this.cards.add(new Card(14, suit)); // As
         }
     }
 

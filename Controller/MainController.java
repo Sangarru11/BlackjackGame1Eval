@@ -18,7 +18,7 @@ public class MainController {
         for (Player player : this.game.getPlayers()) {
             this.ui.showPlayerHand(player);
         }
-        System.out.println(this.game.getDealer().getName() + "'s first card:");
+        System.out.println("Cartas del " + this.game.getDealer().getName());
         System.out.println(this.game.getDealer().getHand().get(0));
         for (Player player : this.game.getPlayers()) {
             this.playerTurn(player);

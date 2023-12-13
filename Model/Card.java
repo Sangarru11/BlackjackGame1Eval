@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.*;
 import java.util.Objects;
 
 public class Card {
@@ -12,33 +13,41 @@ public class Card {
         this.suit = suit;
         this.isAce = (value == 1);
     }
-    public Card(){
-        this(0,"");
-    }
     public int getValue() {
         return value;
     }
     public void setValue(int value) {
         this.value = value;
     }
-    public String getSuit() {
-        return suit;
-    }
-    public void setSuit(String suit) {
-        this.suit = suit;
-    }
     public boolean isAce() {
         return isAce;
     }
     @Override
     public String toString() {
-        return "╔════════╗\n" +
-                "║ " + value + "      ║\n" +
-                "║        ║\n" +
-                "║   " + suit + "    ║\n" +
-                "║        ║\n" +
-                "║      " + value + " ║\n" +
-                "╚════════╝";
+        String displayValue;
+        switch (value) {
+            case 11:
+                displayValue = "J";
+                break;
+            case 12:
+                displayValue = "Q";
+                break;
+            case 13:
+                displayValue = "K";
+                break;
+            case 14:
+                displayValue = "A";
+                break;
+            default:
+                displayValue = Integer.toString(value);
+        }
+        return "╔═══════════╗\n" +
+                "║ " + displayValue + "         ║\n" +
+                "║           ║\n" +
+                "║     " + suit + "     ║\n" +
+                "║           ║\n" +
+                "║         " + displayValue + " ║\n" +
+                "╚═══════════╝";
     }
     @Override
     public boolean equals(Object o) {

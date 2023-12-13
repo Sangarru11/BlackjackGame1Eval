@@ -12,9 +12,20 @@ public class Main {
                 "  \\____| /_/   \\_\\ |____/  |___| |_| \\_|  \\___/     \\___/   \\___/  /_/   \\_\\ |_| \\_|   |_| \\_\\ |_____|  \\___/  /_/   \\_\\ |_| \\_|  \\___/ \n" +
                 "                                                                                                                                        ");
         ArrayList<String> playerNames = new ArrayList<>();
-        System.out.println("Introduce el número de jugadores (1-4):");
-        int numPlayers = scanner.nextInt();
-        scanner.nextLine(); // consume the newline
+        int numPlayers = 0;
+        while (numPlayers < 1 || numPlayers > 4) {
+            System.out.println("Introduce el número de jugadores (1-4):");
+            if (scanner.hasNextInt()) {
+                numPlayers = scanner.nextInt();
+                if (numPlayers < 1 || numPlayers > 4) {
+                    System.out.println("Número inválido. Por favor, introduce un número entre 1 y 4.");
+                }
+            } else {
+                System.out.println("Entrada no válida. Por favor, introduce un número.");
+                scanner.next();
+            }
+        }
+        scanner.nextLine();
         for (int i = 1; i <= numPlayers; i++) {
             System.out.println("Introduce el nombre del jugador " + i + ":");
             String name = scanner.nextLine();

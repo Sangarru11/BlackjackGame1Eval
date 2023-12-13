@@ -16,7 +16,7 @@ public class UI {
     }
 
     public void showPlayerHand(Player player) {
-        System.out.println(player.getName() + "'s hand:");
+        System.out.println("Esta es tu mano " + player.getName() );
         for (Card card : player.getHand()) {
             System.out.println(card);
         }
