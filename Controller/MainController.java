@@ -64,12 +64,20 @@ public class MainController {
     public void determineWinner() {
         Player winner = this.game.getDealer();
         int highestScore = this.game.getDealer().calculateHandTotal();
+        if (highestScore > 21) {
+            winner = null;
+            highestScore = 0;
+        }
         for (Player player : this.game.getPlayers()) {
             if (!player.isBust() && player.calculateHandTotal() > highestScore) {
                 winner = player;
                 highestScore = player.calculateHandTotal();
             }
         }
-        this.ui.showWinner(winner);
+        if (winner != null) {
+            this.ui.showWinner(winner);
+        } else {
+            System.out.println("Todos los jugadores han ganado.");
+        }
     }
 }
