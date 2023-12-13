@@ -77,7 +77,7 @@ public class MainController {
         if (winner != null) {
             this.ui.showWinner(winner);
         } else {
-            System.out.println("Todos los jugadores han ganado.");
+            System.out.println("Empate");
         }
     }
 }
